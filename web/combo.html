@@ -1,0 +1,76 @@
+<html>
+<head>
+    <script>
+
+        function factorial(num) {
+            if (num === 0) {
+                return 1;
+            } else {
+                return num * factorial(num - 1);
+            }
+        }
+
+        function calcCombo() {
+            var result = 0;
+            try {
+                var x = factorial(form1.combo.value);
+                var y = factorial(form1.total.value);
+                var z = factorial(form1.total.value - form1.combo.value);
+
+                result = y / (x * z);
+            } catch (e) {
+                console.log(e);
+                response.innerHTML = 'Come on, dude, ' + e.message;
+                return;
+            }
+
+            response.innerHTML = result.toLocaleString();
+
+        }
+
+        function validate() {
+
+            if (form1.combo.value <= 0 || form1.total.value <= 0) {
+                response.innerHTML = 'Only positive numbers';
+                return false;
+            }
+
+            if (Math.max(form1.combo.value, form1.total.value) > 170) {
+                response.innerHTML = 'Nothing over 170';
+                return false;
+            }
+
+            if (Number(form1.combo.value) > Number(form1.total.value)) {
+                response.innerHTML = 'Numbers make no sense';
+                return false;
+            }
+
+            return true;
+        }
+
+        function resetForm() {
+            //form1.combo.value = '';
+            //form1.total.value = '';
+            form1.combo.focus();
+        }
+
+    </script>
+</head>
+<body onload="form1.combo.focus()">
+<h3>Combination calculator 1.0</h3>
+<form id="form1" onsubmit="return validate()" action="javascript:calcCombo()">
+    <label for="combo">Combo number</label>
+    <input type="number" id="combo"/>
+    <br>
+    <label for="total">Total number</label>
+    <input type="number" id="total"/>
+    <br>
+    <output id="response">Answer goes here</output>
+    <br>
+    <input type="submit" value="calculate combo"/>
+
+    <br>
+    <input type="date"/>
+</form>
+</body>
+</html>
