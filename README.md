@@ -1,4 +1,4 @@
-# java
+# web
 Code that solves the "combination" problem. 
 
 Example: There are 12 players on a basketball team, and only 5 players can play at any one time.
