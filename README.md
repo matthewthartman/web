@@ -8,6 +8,4 @@ x = 5! (factorial of the sub group)
 y = 12! (factorial of the total group)
 z = 7! (factorial of the total - sub)
 
- y
-____   =  Number of unique combinations
-x * z
+y / x * z = Number of unique combinations
