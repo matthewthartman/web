@@ -11,4 +11,3 @@ z = 7! (factorial of the total - sub)
  y
 ____   =  Number of unique combinations
 x * z
-
